@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Arrays</title>
+</head>
+<body style="text-align: center; margin-top: 200px; font-size: large;">
+    <h1 style="text-decoration: underline;">Javascript Arrays</h1>
+
+    <p id="demo"></p>
+    <p id="demo1"></p>
+    <p id="demo2"></p> 
+    <p id="demo3"></p>
+    <p id="demo4"></p>
+   
+    <script>
+        
+    const marks = ["20", "40", "100", "80", "30", "10", "50", "70", "90", "60"];
+    document.getElementById("demo").innerHTML = marks;
+
+     marks.push(90);
+     document.getElementById("demo1").innerHTML = marks;
+
+     document.getElementById("demo2").innerHTML = marks.indexOf('90');
+     console.log(marks.indexOf('90'));
+      
+        marks.pop();
+        document.getElementById("demo3").innerHTML = marks;
+
+        marks.unshift(25);
+        document.getElementById("demo4").innerHTML = marks;
+
+    </script>
+</body>
+</html>

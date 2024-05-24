@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fetch (Api Calling)</title>
+    <style>
+        .img-size {
+            max-width: 150px;
+            max-height: 150px;
+        }
+    </style>
+</head>
+<body>
+     <table>
+        <thead>
+            <tr>
+                <td>AlbumId</td>
+                <td>Id</td>
+                <td>Title</td>
+                <td>Thumbnail</td>
+            </tr>
+        </thead>
+        <tbody id="photos-data">
+
+        </tbody>
+    </table>
+    <script>
+        fetch("https://jsonplaceholder.typicode.com/photos?_page=1&_limit=10", 
+    {
+        method: "GET",
+        headers:{
+            "Accept": "application/json",
+            "Content-Type": "application/json"
+        }
+    })
+    .then(function(response){
+        return response.json();
+    })
+
+    .then(function(data){
+        //  console.log(data);
+        const tbody = document.querySelector("#photos-data");
+        data.forEach(function(datum){
+         const tr = `<tr>
+         <td>${datum.albumId}</td>
+          <td>${datum.id}</td>
+            <td>${datum.title}</td>
+            <td>
+                <img class="img-size" src="${datum.thumbnailUrl}">
+            </td>
+            </tr>
+            `;
+            tbody.innerHTML += tr;
+       });
+     });
+    </script>
+</body>
+</html>
+

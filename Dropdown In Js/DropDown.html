@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DropDown</title>
+    <style>
+        #hello {
+            color: black;
+            transition: color 0.3s; 
+        }
+        #hello:hover {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <h1 id="hello">Select a student:</h1>
+    <select name="student" id="studentSelect"></select>
+    <table>
+        <thead>
+            <tr>
+                <th>Roll Number</th>
+                <th>Name</th>
+                <th>Program</th> 
+            </tr>
+        </thead>
+        <tbody id="std-tbody"></tbody>
+    </table>
+    <script>
+        var students = [
+            {
+                name: "Badar",
+                rollnumber: 61101,
+                Class: "CS"
+            },
+            {
+                name: "Ali",
+                rollnumber: 15324,
+                Class: "BS"
+            },
+            {
+                name: "Asif",
+                rollnumber: 65324,
+                Class: "MS"
+            },
+            {
+                name: "Azam",
+                rollnumber: 45326,
+                Class: "Bachelor"
+            },
+            {
+                name: "Zain",
+                rollnumber: 90239,
+                Class: "Intermediate"
+            }
+        ];
+        const stdDdl = document.querySelector("#studentSelect");
+        students.forEach(function(std){
+            stdDdl.innerHTML += `<option value="${std.rollnumber}">${std.name}</option>`;
+        });
+        stdDdl.addEventListener("change", function(){
+            const selectedRollNumber = stdDdl.options[stdDdl.selectedIndex].value;
+            const selectedStd = students.find(function(std){ 
+                return std.rollnumber == selectedRollNumber;
+            });
+            const innerTr = `<tr>
+                <td>${selectedStd.rollnumber}</td>
+                <td>${selectedStd.name}</td> 
+                <td>${selectedStd.Class}</td>
+            </tr>`;
+            const stdTbody = document.querySelector("#std-tbody"); 
+            stdTbody.innerHTML = innerTr;
+        });
+    </script>
+</body>
+</html>
+

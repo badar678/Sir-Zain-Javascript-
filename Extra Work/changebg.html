@@ -1,0 +1,40 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Background Color</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        div{
+            text-align: center;
+          margin-top: 215px;
+        }
+        h2{
+            padding: 10px;
+        }
+    </style> 
+</head>
+<body>
+    <div class="container">
+        <h2>Change Background Color</h2>
+        <input type="color" id="hello" value="#ffffff">
+
+    </div>
+  <script>
+    
+const colorChange = document.getElementById("hello");
+
+colorChange.addEventListener("change", ()=>{
+//  console.log(colorChange.value);
+ document.body.style.backgroundColor = colorChange.value;
+});
+
+  </script>
+</body>
+</html> 
+

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Information</title>
+</head>
+<body>
+    <div id="hello"></div> 
+
+    <script>
+        const Students = [
+            {
+                name: 'Badar',
+                program: 'Matric',
+                courseName: 'Science',
+                obtainedMarks: 932,
+                totalMarks: 1100
+            },
+            {
+                name: 'Mubashir',
+                program: 'Intermediate',
+                courseName: 'Pre-Engineering',
+                obtainedMarks: 825,
+                totalMarks: 1100
+            },
+            {
+                name: 'Waheed',
+                program: 'BSCS',
+                courseName: 'Web Development',
+                obtainedMarks: 420,
+                totalMarks: 520
+            },
+            {
+                name: 'Babar Azam',
+                program: 'MSIT',
+                courseName: 'Front-end',
+                obtainedMarks: 850,
+                totalMarks: 900
+            },
+            {
+                name: 'Ali',
+                program: 'MPhil',
+                courseName: 'English',
+                obtainedMarks: 230,
+                totalMarks: 350
+            },
+            {
+                name: 'Zaid',
+                program: 'PhD',
+                courseName: 'Mathematics',
+                obtainedMarks: 460,
+                totalMarks: 550
+            }
+        ];
+
+     
+        let htmlString = "";
+        Students.forEach(student => {
+            htmlString += `<div>
+                            <p>Name: ${student.name}</p>
+                            <p>Program: ${student.program}</p>
+                            <p>Course Name: ${student.courseName}</p>
+                            <p>Obtained Marks: ${student.obtainedMarks}</p>
+                            <p>Total Marks: ${student.totalMarks}</p>
+                            <hr>
+                          </div>`;
+        });
+
+       
+        document.getElementById("hello").innerHTML = htmlString;
+    </script>
+</body>
+</html>
+
+
+
+
